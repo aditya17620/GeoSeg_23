@@ -44,10 +44,10 @@ use_aux_loss = True
 
 # define the dataloader
 
-train_dataset = UAVIDDataset(data_root='data/uavid/train_val', img_dir='images', mask_dir='masks',
+train_dataset = UAVIDDataset(data_root="/kaggle/input/uavid-landing/uavid_v1.5_official_release_image_bw/uavid_train/*", img_dir='images', mask_dir='labels',
                              mode='train', mosaic_ratio=0.25, transform=train_aug, img_size=(1024, 1024))
 
-val_dataset = UAVIDDataset(data_root='data/uavid/val', img_dir='images', mask_dir='masks', mode='val',
+val_dataset = UAVIDDataset(data_root=r"/kaggle/input/uavid-landing/uavid_v1.5_official_release_image_bw/uavid_val/*", img_dir='images', mask_dir='masks', mode='labels',
                            mosaic_ratio=0.0, transform=val_aug, img_size=(1024, 1024))
 
 
