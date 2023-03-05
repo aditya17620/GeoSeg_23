@@ -12,8 +12,8 @@ from PIL import Image
 import random
 from .transform import *
 
-CLASSES = ('Building', 'Road', 'Tree', 'LowVeg', 'Moving_Car',  'Static_Car', 'Human', 'Clutter')
-PALETTE = [[128, 0, 0], [128, 64, 128], [0, 128, 0], [128, 128, 0], [64, 0, 128], [192, 0, 192], [64, 64, 0], [0, 0, 0]]
+CLASSES = ('safe', 'notsafe')
+PALETTE = [[255, 255, 255],  [0, 0, 0]]
 
 ORIGIN_IMG_SIZE = (1024, 1024)
 INPUT_IMG_SIZE = (1024, 1024)
@@ -54,7 +54,7 @@ def val_aug(img, mask):
 
 
 class UAVIDDataset(Dataset):
-    def __init__(self, data_root='data/uavid/val', mode='val', img_dir='images', mask_dir='masks',
+    def __init__(self, data_root='/kaggle/input/uavid-landing/uavid_v1.5_official_release_image_bw/uavid_val', mode='val', img_dir='images', mask_dir='labels',
                  img_suffix='.png', mask_suffix='.png', transform=val_aug, mosaic_ratio=0.0,
                  img_size=ORIGIN_IMG_SIZE):
         self.data_root = data_root
